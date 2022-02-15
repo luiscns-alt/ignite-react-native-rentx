@@ -1,38 +1,69 @@
 {
-  "name": "rentx",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web",
-    "prepare": "husky install",
-    "commit": "git-cz"
-  },
-  "dependencies": {
-    "expo": "~44.0.2",
-    "expo-splash-screen": "~0.14.1",
-    "expo-status-bar": "~1.2.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@commitlint/cli": "^16.1.0",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@types/react-native": "~0.64.12",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "3.3.0",
-    "husky": "^7.0.4",
-    "typescript": "~4.3.5"
-  },
-  "private": true,
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+    "name": "rentx",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "expo start",
+        "android": "expo run:android",
+        "ios": "expo run:ios",
+        "web": "expo start --web",
+        "prepare": "husky install",
+        "commit": "git-cz",
+        "lint:fix": "eslint **/*.tsx --fix",
+        "lint": "eslint **/*.tsx",
+        "test": "lint-staged",
+        "prettify": "prettier ./src --write"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "prettier --write",
+            "eslint --fix",
+            "eslint",
+            "git add"
+        ],
+        "*.tsx": [
+            "npm run lint:fix",
+            "npm run lint"
+        ]
+    },
+    "dependencies": {
+        "expo": "~44.0.2",
+        "expo-splash-screen": "~0.14.1",
+        "expo-status-bar": "~1.2.0",
+        "react": "17.0.1",
+        "react-dom": "17.0.1",
+        "react-native": "0.64.3",
+        "react-native-web": "0.17.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.9",
+        "@babel/eslint-parser": "^7.17.0",
+        "@commitlint/cli": "^16.1.0",
+        "@commitlint/config-conventional": "^16.0.0",
+        "@types/react-native": "~0.64.12",
+        "@typescript-eslint/eslint-plugin": "^5.12.0",
+        "@typescript-eslint/parser": "^5.12.0",
+        "babel-eslint": "^10.1.0",
+        "commitizen": "^4.2.4",
+        "cz-conventional-changelog": "3.3.0",
+        "eslint": "^8.9.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.28.0",
+        "husky": "^7.0.4",
+        "lint-staged": "^12.3.4",
+        "prettier": "2.5.1",
+        "typescript": "~4.3.5"
+    },
+    "private": true,
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
-  }
 }
