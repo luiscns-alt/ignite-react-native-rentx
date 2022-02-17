@@ -25,7 +25,9 @@ import {
     Price,
     About,
     Acessories,
+    Footer,
 } from './styles';
+import { Button } from '@components/Button';
 
 export function CarDetails() {
     return (
@@ -70,6 +72,15 @@ export function CarDetails() {
                     alias? Aut eveniet pariatur asperiores ducimus?
                 </About>
             </Content>
+
+            <Footer>
+                <Button
+                    title='Confirmar'
+                    onPress={function (): void {
+                        throw new Error('Function not implemented.');
+                    }}
+                />
+            </Footer>
         </Container>
     );
 }
