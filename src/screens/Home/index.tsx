@@ -6,7 +6,7 @@ import Logo from '../../assets/logo.svg';
 
 import { Car } from '../../components/Car';
 
-import { Container, Header, TotalCars, HeaderContent } from './styles';
+import { Container, Header, TotalCars, HeaderContent, CarList } from './styles';
 
 export function Home() {
     const carData = {
@@ -18,16 +18,7 @@ export function Home() {
         },
         thumbnail: 'https://image.pngaaa.com/845/4774845-middle.png',
     };
-    const carDataTwo = {
-        brand: 'Porshe',
-        name: 'Panamera',
-        rent: {
-            period: 'AO DIA',
-            price: 340,
-        },
-        thumbnail:
-            'https://img2.gratispng.com/20180517/zzw/kisspng-2018-porsche-panamera-2015-porsche-panamera-porsch-5afe197550f488.4299338415266021013316.jpg',
-    };
+    s;
 
     return (
         <Container>
@@ -42,8 +33,11 @@ export function Home() {
                     <TotalCars>Total de 12 carros</TotalCars>
                 </HeaderContent>
             </Header>
-            <Car data={carData} />
-            <Car data={carDataTwo} />
+            <CarList
+                data={[1, 2, 3, 4, 5, 6]}
+                keyExtractor={(item) => String(item)}
+                renderItem={({ item }) => <Car data={carData} />}
+            />
         </Container>
     );
 }
