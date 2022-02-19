@@ -94,6 +94,7 @@ export const Acessories = styled.View`
     justify-content: space-between;
 
     margin-top: 16px;
+    margin-right: -8px;
 `;
 
 export const Footer = styled.View`
