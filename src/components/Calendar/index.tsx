@@ -46,7 +46,7 @@ LocaleConfig.locales['ptBr'] = {
         'Sábado',
     ],
     dayNamesShort: ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'],
-    today: 'Hoje',
+    // today: 'Hoje',
 };
 
 LocaleConfig.defaultLocale = 'ptBr';
@@ -84,7 +84,7 @@ export function Calendar() {
                 },
             }}
             firstDay={1}
-            minDate={new Date()}
+            minDate={String(new Date())}
         />
     );
 }
