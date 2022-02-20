@@ -13,19 +13,19 @@ export const Container = styled.View`
 `;
 export const Header = styled.View`
     width: 100%;
-    height: 325px;
+    height: ${RFValue(325)}px;
 
     background-color: ${({ theme }) => theme.colors.header};
 
     justify-content: center;
-    padding: 20px;
+    padding: 25px;
     padding-top: ${getStatusBarHeight() + 30}px;
 `;
 
 export const Title = styled.Text`
     color: ${({ theme }) => theme.colors.shape};
     font-family: ${({ theme }) => theme.fonts.secondary_600};
-    font-size: ${RFValue(34)}px;
+    font-size: ${RFValue(32)}px;
 
     margin-top: 24px;
 `;
@@ -37,7 +37,7 @@ export const RentalPeriod = styled.View`
     justify-content: space-between;
     align-items: center;
 
-    margin: 32px 0;
+    margin: 0 0 32px;
 `;
 
 export const DateInfo = styled.View`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useTheme } from 'styled-components';
@@ -42,7 +42,9 @@ export function Scheduling() {
                     translucent
                     backgroundColor='transparent'
                 />
+
                 <BackButton onPress={() => {}} color={theme.colors.text} />
+
                 <Title>
                     Escolha uma {'\n'}
                     linha data de ínicio e {'\n'}
@@ -52,14 +54,14 @@ export function Scheduling() {
                 <RentalPeriod>
                     <DateInfo>
                         <DateTitle>DE</DateTitle>
-                        <DateValue selected={true}>18/06/2021</DateValue>
+                        <DateValue selected={false}>18/06/2021</DateValue>
                     </DateInfo>
 
                     <ArrowSvg />
 
                     <DateInfo>
                         <DateTitle>ATÉ</DateTitle>
-                        <DateValue selected={true}>20/02/2021</DateValue>
+                        <DateValue selected={false}>20/02/2021</DateValue>
                     </DateInfo>
                 </RentalPeriod>
             </Header>
