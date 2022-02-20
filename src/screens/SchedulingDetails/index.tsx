@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
@@ -9,6 +11,8 @@ import { Acessory } from '@components/Acessory';
 import { BackButton } from '@components/BackButton';
 import { Button } from '@components/Button';
 import { ImageSlider } from '@components/ImageSlider';
+
+import { RootStackParamList } from '../../@types/navigation';
 
 import speedSvg from '@assets/speed.svg';
 import accelerationSvg from '@assets/acceleration.svg';
@@ -43,8 +47,16 @@ import {
     RentalPriceTotal,
 } from './styles';
 
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+
 export function SchedulingDetails() {
     const theme = useTheme();
+    const { navigate } = useNavigation<HomeScreenNavigationProp>();
+
+    function handleComfirm() {
+        navigate('SchedulingComplete');
+    }
+
     return (
         <Container>
             <Header>
@@ -119,9 +131,7 @@ export function SchedulingDetails() {
                 <Button
                     title='Alugar agora'
                     color={theme.colors.success}
-                    onPress={function (): void {
-                        throw new Error('Function not implemented.');
-                    }}
+                    onPress={handleComfirm}
                 />
             </Footer>
         </Container>

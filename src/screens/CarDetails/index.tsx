@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import { Acessory } from '@components/Acessory';
 import { BackButton } from '@components/BackButton';
@@ -29,7 +31,17 @@ import {
 } from './styles';
 import { Button } from '@components/Button';
 
+import { RootStackParamList } from '../../@types/navigation';
+
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+
 export function CarDetails() {
+    const { navigate } = useNavigation<HomeScreenNavigationProp>();
+
+    function handleConfirmRental() {
+        navigate('Scheduling');
+    }
+
     return (
         <Container>
             <Header>
@@ -75,10 +87,8 @@ export function CarDetails() {
 
             <Footer>
                 <Button
-                    title='Confirmar'
-                    onPress={function (): void {
-                        throw new Error('Function not implemented.');
-                    }}
+                    title='Escolher período do aluguel'
+                    onPress={handleConfirmRental}
                 />
             </Footer>
         </Container>

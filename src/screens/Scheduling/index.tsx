@@ -1,5 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { useTheme } from 'styled-components';
 
 import { Button } from '@components/Button';
@@ -7,6 +9,8 @@ import { BackButton } from '@components/BackButton';
 import { Calendar } from '@components/Calendar';
 
 import ArrowSvg from '@assets/arrow.svg';
+
+import { RootStackParamList } from '../../@types/navigation';
 
 import {
     Container,
@@ -20,8 +24,16 @@ import {
     Title,
 } from './styles';
 
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+
 export function Scheduling() {
     const theme = useTheme();
+    const { navigate } = useNavigation<HomeScreenNavigationProp>();
+
+    function handleConfirmRental() {
+        navigate('SchedulingDetails');
+    }
+
     return (
         <Container>
             <Header>
@@ -40,14 +52,14 @@ export function Scheduling() {
                 <RentalPeriod>
                     <DateInfo>
                         <DateTitle>DE</DateTitle>
-                        <DateValue selected={false}>18/06/2021</DateValue>
+                        <DateValue selected={true}>18/06/2021</DateValue>
                     </DateInfo>
 
                     <ArrowSvg />
 
                     <DateInfo>
                         <DateTitle>ATÉ</DateTitle>
-                        <DateValue selected={false}>20/02/2021</DateValue>
+                        <DateValue selected={true}>20/02/2021</DateValue>
                     </DateInfo>
                 </RentalPeriod>
             </Header>
@@ -57,12 +69,7 @@ export function Scheduling() {
             </Content>
 
             <Footer>
-                <Button
-                    title='Confirmar'
-                    onPress={function (): void {
-                        throw new Error('Function not implemented.');
-                    }}
-                />
+                <Button title='Confirmar' onPress={handleConfirmRental} />
             </Footer>
         </Container>
     );

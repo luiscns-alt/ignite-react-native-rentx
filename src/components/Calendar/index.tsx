@@ -7,7 +7,7 @@ import {
     LocaleConfig,
 } from 'react-native-calendars';
 
-LocaleConfig.locales['ptBr'] = {
+LocaleConfig.locales['pt-br'] = {
     monthNames: [
         'Janeiro',
         'Fevereiro',
@@ -49,7 +49,7 @@ LocaleConfig.locales['ptBr'] = {
     // today: 'Hoje',
 };
 
-LocaleConfig.defaultLocale = 'ptBr';
+LocaleConfig.defaultLocale = 'pt-br';
 
 export function Calendar() {
     const theme = useTheme();
