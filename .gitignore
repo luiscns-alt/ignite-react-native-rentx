@@ -56,3 +56,5 @@ dist/
 
 # Yarn
 yarn.lock
+
+package-lock.json
