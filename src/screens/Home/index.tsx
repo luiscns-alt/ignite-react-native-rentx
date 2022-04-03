@@ -6,7 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 import Logo from '../../assets/logo.svg';
 
-import { Car } from '../../components/Car';
+import { Car } from '@components/Car';
 
 import { RootStackParamList } from '../../@types/navigation';
 

@@ -4,27 +4,13 @@
         "strict": true,
         "baseUrl": "./",
         "paths": {
-            "@components/*": [
-                "./src/components/*"
-            ],
-            "@screens/*": [
-                "./src/screens/*"
-            ],
-            "@assets/*": [
-                "./src/assets/*"
-            ],
-            "@database/*": [
-                "./src/database/*"
-            ],
-            "@hooks/*": [
-                "./src/hooks/*"
-            ],
-            "@service/*": [
-                "./src/service/*"
-            ],
-            "@utils/*": [
-                "./src/utils/*"
-            ],
+            "@components/*": ["./src/components/*"],
+            "@screens/*": ["./src/screens/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@database/*": ["./src/database/*"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@service/*": ["./src/service/*"],
+            "@utils/*": ["./src/utils/*"]
         }
     },
     "extends": "expo/tsconfig.base"
