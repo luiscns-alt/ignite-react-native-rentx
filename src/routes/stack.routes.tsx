@@ -6,7 +6,7 @@ import { Scheduling } from '@screens/Scheduling';
 import { SchedulingDetails } from '@screens/SchedulingDetails';
 import { SchedulingComplete } from '@screens/SchedulingComplete';
 
-import { RootStackParamList } from '../../src/@types/navigation';
+import { RootStackParamList } from '../@types/navigation';
 
 const { Navigator, Screen } = createStackNavigator<RootStackParamList>();
 

@@ -20,20 +20,10 @@ type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 export function Home() {
     const [cars, setCars] = useState<CarDTO[]>([]);
     const [loading, setLoading] = useState(true);
-    const { navigate } = useNavigation<HomeScreenNavigationProp>();
+    const navigation = useNavigation<HomeScreenNavigationProp>();
 
-    const carData = {
-        brand: 'Audi',
-        name: 'SR Coupé',
-        rent: {
-            period: 'AO DIA',
-            price: 120,
-        },
-        thumbnail: 'https://image.pngaaa.com/845/4774845-middle.png',
-    };
-
-    function handleCarDetails() {
-        navigate('CarDetails');
+    function handleCarDetails(car: CarDTO) {
+        navigation.navigate('CarDetails', { car });
     }
 
     useEffect(() => {
@@ -71,7 +61,10 @@ export function Home() {
                     data={cars}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
-                        <Car data={item} onPress={handleCarDetails} />
+                        <Car
+                            data={item}
+                            onPress={() => handleCarDetails(item)}
+                        />
                     )}
                 />
             )}
